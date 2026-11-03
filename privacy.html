@@ -25,6 +25,7 @@
     <li>AI results and photos saved locally on your device, including your onboarding portrait and outfit check photos.</li>
     <li>Limited app usage information, such as screens viewed, feature events, session information, app version, device model, operating system, language and an app-instance identifier, through Firebase Analytics.</li>
     <li>Crash and diagnostic information, including stack traces, device and app information and a Crashlytics installation identifier, through Firebase Crashlytics when crash reporting is enabled.</li>
+    <li>An anonymous account identifier and records of AI feature usage.</li>
     <li>Subscription status, products, transaction or receipt information and identifiers needed to manage purchases through RevenueCat.</li>
     <li>Technical information such as IP addresses may be processed by our service providers when the Application communicates with their services. We do not use your device’s precise location for these features.</li>
   </ul>
@@ -34,18 +35,21 @@
   <p>When you request an AI feature, the information needed for that request, which may include a photo and relevant answers or text, is sent over an encrypted connection to our Supabase Edge Function and then to OpenAI for analysis. The function does not intentionally save submitted photos to a file, storage bucket or database. Supabase may process request metadata and operational logs; an error log may include an OpenAI error message or model output, but our function does not intentionally log the submitted image or request body. Please avoid including sensitive information in text you submit.</p>
   <p>OpenAI API inputs are not used to train OpenAI models by default unless the Service Provider explicitly opts in to data sharing. The Application uses OpenAI’s Chat Completions API without requesting stored completions. OpenAI may retain API data in abuse monitoring logs for up to 30 days, subject to its applicable policies and settings. See <a href="https://platform.openai.com/docs/guides/your-data" target="_blank" rel="noopener noreferrer">OpenAI’s API data controls</a>.</p>
 
+  <h2>Anonymous Account and Usage Limits</h2>
+  <p>The Application creates an anonymous account with a random identifier; no name, email or login is required. When you use an AI feature, our server records this identifier, the feature used, the time and a non-reversible network identifier. These records do not contain your photos, quiz answers or AI results, and are used only to apply free-sample and usage limits and to prevent abuse. On iOS, the anonymous sign-in may remain in the device Keychain after the Application is deleted.</p>
+
   <h2>Analytics and Crash Diagnostics</h2>
   <p>Firebase Analytics helps us understand feature use and improve the Application. Events may include whether a photo came from the camera or gallery, a result’s archetype category key, a selected life domain, a paywall placement, a plan type and a short purchase outcome label. We do not intentionally send photos, image URLs, quiz answer text, AI-generated aura text or email addresses as event parameters. Analytics also uses an app-instance identifier and may automatically collect device and usage information.</p>
   <p>Firebase Crashlytics collects crash and stability information to diagnose errors in release builds. We do not intentionally attach photos or quiz answers, set a Crashlytics user identifier, or add custom keys or logs. Crash reports can nevertheless include exception messages and diagnostic context generated when an error occurs. When Firebase Analytics and Crashlytics are used together, crash reports may include recent analytics event breadcrumbs.</p>
   <p>We have disabled advertising storage and personalization in the Application’s analytics configuration. We do not use the iOS advertising identifier (IDFA) or these services for cross-app advertising or tracking across other companies’ apps and websites. See <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Privacy and Security in Firebase</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google’s Privacy Policy</a>.</p>
 
   <h2>Subscriptions and Purchases</h2>
-  <p>RevenueCat processes subscription and purchase information, such as product identifiers, subscription status, transaction and receipt information, app user identifiers and limited device information, to validate purchases and provide access to paid features. Apple or Google processes payment card details; we do not collect or store your payment card number.</p>
+  <p>RevenueCat processes subscription and purchase information, such as product identifiers, subscription status, transaction and receipt information, app user identifiers and limited device information, to validate purchases and provide access to paid features. The anonymous account identifier is used as the RevenueCat app user identifier. Apple or Google processes payment card details; we do not collect or store your payment card number.</p>
 
   <h2>Service Providers and Sharing</h2>
   <p>We share information needed to operate the Application with the following providers:</p>
   <ul>
-    <li><a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase</a>: operates the Edge Function that relays AI requests and serves curated images from our storage buckets. User photos are not written to those buckets.</li>
+    <li><a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase</a>: provides the anonymous account and usage records, operates the Edge Function that relays AI requests and serves curated images from our storage buckets. User photos are not written to those buckets.</li>
     <li><a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer">OpenAI</a>: processes submitted photos and relevant inputs to produce AI analysis.</li>
     <li><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat</a>: manages in-app purchases and subscription entitlements.</li>
     <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Firebase</a>: provides usage analytics and crash diagnostics.</li>
@@ -56,6 +60,7 @@
   <h2>Storage, Retention and Deletion</h2>
   <ul>
     <li><strong>On-device data:</strong> Your locally saved photos, quiz answers and readings remain on your device until you remove them through available app or device controls, clear app data, or uninstall the Application. Uninstalling does not delete information already processed by external providers.</li>
+    <li><strong>Usage records:</strong> Kept while needed to apply usage limits, and deleted on request.</li>
     <li><strong>AI requests:</strong> We do not intentionally keep submitted photos in Supabase Storage or a database. OpenAI may retain API data for up to 30 days for abuse monitoring under its applicable policies. Operational logs, including possible error messages or model output, are subject to Supabase’s configured log retention.</li>
     <li><strong>Analytics and diagnostics:</strong> Firebase data is retained under the applicable project settings and Google’s retention policies. Crashlytics generally retains crash data for 90 days before beginning removal from active and backup systems.</li>
     <li><strong>Purchases:</strong> Purchase and transaction records may remain with RevenueCat and the applicable app store for subscription administration and legal or accounting obligations.</li>
@@ -73,7 +78,7 @@
 
   <h2>Changes to This Policy</h2>
   <p>We may update this policy to reflect changes to the Application or our data practices. The effective date below will be updated when the policy changes.</p>
-  <p><strong>Effective date:</strong> October 31, 2026</p>
+  <p><strong>Effective date:</strong> November 3, 2026</p>
 
   <h2>Contact</h2>
   <p>AuraGlow AI · <a href="mailto:auraglowsup@gmail.com">auraglowsup@gmail.com</a></p>
